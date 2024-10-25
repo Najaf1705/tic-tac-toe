@@ -55,34 +55,67 @@ const clicked=(element)=>{
 const checkWinner=()=>{
     for(let i=0;i<3;i++){
         if(mat[i][0]==='x' && mat[i][1]==='x' && mat[i][2]==='x'){
+            console.log(i+"1")
+            document.getElementById(i+"0").style.backgroundColor="red";
+            document.getElementById(i+"1").style.backgroundColor="red";
+            document.getElementById(i+"2").style.backgroundColor="red";
             document.getElementById("winner").innerHTML="X won"
             winnerFound=true;
         }
         if(mat[i][0]==='o' && mat[i][1]==='o' && mat[i][2]==='o'){
+            document.getElementById(i+"0").style.backgroundColor="red";
+            document.getElementById(i+"1").style.backgroundColor="red";
+            document.getElementById(i+"2").style.backgroundColor="red";
             document.getElementById("winner").innerHTML="O won"
             winnerFound=true;
         }
     }
     for(let i=0;i<3;i++){
         if(mat[0][i]==='x' && mat[1][i]==='x' && mat[2][i]==='x'){
+            document.getElementById("0"+i).style.backgroundColor="red";
+            document.getElementById("1"+i).style.backgroundColor="red";
+            document.getElementById("2"+i).style.backgroundColor="red";
             document.getElementById("winner").innerHTML="X won"
             winnerFound=true;
         }
         if(mat[0][i]==='o' && mat[1][i]==='o' && mat[2][i]==='o'){
+            document.getElementById("0"+i).style.backgroundColor="red";
+            document.getElementById("1"+i).style.backgroundColor="red";
+            document.getElementById("2"+i).style.backgroundColor="red";
             document.getElementById("winner").innerHTML="O won"
             winnerFound=true;
         }
     }
-    if((mat[0][0]==='x' && mat[1][1]==='x' && mat[2][2]==='x')||
-        (mat[0][2]==='x' && mat[1][1]==='x' && mat[2][0]==='x')){
-            document.getElementById("winner").innerHTML="X won"
-            winnerFound=true;
-        }
-    if((mat[0][0]==='o' && mat[1][1]==='o' && mat[2][2]==='o')||
-        (mat[0][2]==='o' && mat[1][1]==='o' && mat[2][0]==='o')){
-            document.getElementById("winner").innerHTML="O won"
-            winnerFound=true;
-        }
+    if(mat[0][0]==='x' && mat[1][1]==='x' && mat[2][2]==='x'){
+        document.getElementById("00").style.backgroundColor="red";
+        document.getElementById("11").style.backgroundColor="red";
+        document.getElementById("22").style.backgroundColor="red";
+        document.getElementById("winner").innerHTML="X won"
+        winnerFound=true;
+    }
+    if(mat[0][2]==='x' && mat[1][1]==='x' && mat[2][0]==='x'){
+        document.getElementById("02").style.backgroundColor="red";
+        document.getElementById("11").style.backgroundColor="red";
+        document.getElementById("20").style.backgroundColor="red";
+        document.getElementById("winner").innerHTML="X won"
+        winnerFound=true;
+    }
+
+    if(mat[0][0]==='o' && mat[1][1]==='o' && mat[2][2]==='o'){
+        document.getElementById("00").style.backgroundColor="red";
+        document.getElementById("11").style.backgroundColor="red";
+        document.getElementById("22").style.backgroundColor="red";
+        document.getElementById("winner").innerHTML="O won"
+        winnerFound=true;
+    }
+    if(mat[0][2]==='o' && mat[1][1]==='o' && mat[2][0]==='o'){
+        document.getElementById("02").style.backgroundColor="red";
+        document.getElementById("11").style.backgroundColor="red";
+        document.getElementById("20").style.backgroundColor="red";
+        document.getElementById("winner").innerHTML="O won"
+        winnerFound=true;
+    }
+
     if(winnerFound){
         document.getElementById("turn").innerHTML=""
     }
@@ -94,6 +127,11 @@ const restart=()=>{
     render()
     isX=true;
     winnerFound=false;
+    for(let i=0;i<3;i++){
+        for(let j=0;j<3;j++){
+            document.getElementById(""+i+j).style.backgroundColor="#CADCFC";
+        }
+    }
     document.getElementById("winner").innerHTML="";
     document.getElementById("turn").innerHTML="X's turn";
 }
