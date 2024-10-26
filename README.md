@@ -1,1 +1,1 @@
-Play here->https://najaf1705.github.io/tic-tac-toe/
+[Play](https://najaf1705.github.io/xo/)
